@@ -7,7 +7,12 @@
         @forelse ($tasks as $task)
             <li><a href="{{ route('tasks.show', ['task' => $task->id]) }}">{{ $task->title }}</a></li>
         @empty
-            No task!
+            There are no task!
         @endforelse
     </ol>
+    @if ($tasks->count())
+        <div>
+            {{ $tasks->links() }}
+        </div>
+    @endif
 @endsection
